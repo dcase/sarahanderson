@@ -1,0 +1,6 @@
+img {behavior: url(/javascripts/iepngfix.htc);}
+div#content {
+	min-height: 466px;
+	height: auto !important;
+	height: 466px;
+}

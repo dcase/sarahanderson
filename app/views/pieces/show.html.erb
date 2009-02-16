@@ -1,0 +1,17 @@
+<p>
+  <b>Title:</b>
+  <%=h @piece.title %>
+</p>
+
+<p>
+  <b>Client name:</b>
+  <%=h @piece.client_name %>
+</p>
+<p>
+	<%= image_tag @piece.image.url %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_category_piece_path(@category,@piece) %> |
+<%= link_to 'Back', category_pieces_path %>

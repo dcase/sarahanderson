@@ -1,0 +1,24 @@
+<h1>Listing rollovers</h1>
+
+<table>
+  <tr>
+    <th>Active</th>
+    <th>Inactive</th>
+    <th>Over</th>
+  </tr>
+
+<% for rollover in @rollovers %>
+  <tr>
+    <td><%=h rollover.active %></td>
+    <td><%=h rollover.inactive %></td>
+    <td><%=h rollover.over %></td>
+    <td><%= link_to 'Show', rollover %></td>
+    <td><%= link_to 'Edit', edit_rollover_path(rollover) %></td>
+    <td><%= link_to 'Destroy', rollover, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rollover', new_rollover_path %>

@@ -1,0 +1,2 @@
+$('#contact_form_container').html("<%= escape_javascript( render :partial => 'form', :object => @contact ) %>");
+$('#errors_container').html("<%= escape_javascript( render :partial => 'error_messages', :object => @contact ) %>");

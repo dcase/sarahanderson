@@ -1,0 +1,32 @@
+<ul id="mainmenu">
+	<% for category in @roots %>
+		<% content_tag_for(:li, category) do %>
+			<% if @category and !@category.new_record? %>
+				<% if category.is_or_is_ancestor_of?(@category) %>
+					<%= link_to image_tag(category.rollover.active.url), category %>
+				<% else %>
+					<%= link_to image_tag(category.rollover.inactive.url, :mouseover => category.rollover.over.url), category %>
+				<% end %>
+			<% else %>
+				<%= link_to image_tag(category.rollover.inactive.url, :mouseover => category.rollover.over.url), category %>
+			<% end %>
+			<%= image_tag 'menuitem-separator.gif', :size => "6x11" %>
+		<% end %>
+	<% end %>
+	
+	<% content_tag :li do %>
+		<% if params[:action] == 'stationery' %>
+			<%= link_to image_tag('stationery-active.gif', :size => '156x9', :alt => 'Stationery and Custom Invites'), { :controller => 'static', :action => 'stationery'}%>
+		<% else %>	
+			<%= link_to image_tag('stationery-inactive.gif', :size => '156x9', :alt => 'Stationery and Custom Invites', :mouseover => 'stationery-active.gif'), { :controller => 'static', :action => 'stationery'} %>
+		<% end %>
+	<% end %>
+	<%= image_tag 'menuitem-separator.gif', :size => "6x11" %>
+	<% content_tag :li do %>
+		<% if params[:controller] == 'contacts' %>
+			<%= link_to image_tag('contact-active.gif', :size => '47x9', :alt => 'Contact Us'), new_contact_path %>
+		<% else %>	
+			<%= link_to image_tag('contact-inactive.gif', :size => '47x9', :alt => 'Contact Us', :mouseover => 'contact-active.gif'), new_contact_path %>
+		<% end %>
+	<% end %>
+</ul>

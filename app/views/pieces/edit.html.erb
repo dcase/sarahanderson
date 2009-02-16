@@ -1,0 +1,27 @@
+<h1>Editing piece</h1>
+
+<% form_for([@category,@piece], :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :client_name %><br />
+    <%= f.text_field :client_name %>
+  </p>
+  <p>
+	Current Image: <%= image_tag @piece.image.url(:thumb) %>
+  </p>
+  <p>
+    <%= f.label 'Replace Image:' %><br />
+    <%= f.file_field :image %>
+  </p>
+  
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', category_pieces_path %>

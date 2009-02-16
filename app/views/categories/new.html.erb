@@ -1,0 +1,10 @@
+<h1>New category</h1>
+
+<% form_for(@category, :html => { :multipart => true }) do |f| %>
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+  <%= render :partial => 'rollovers/fields_include' %>
+  <p>
+  <%= f.submit "Create" %>
+  </p>
+<% end %>
+

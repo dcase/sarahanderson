@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  active: 
+  inactive: 
+  over: 
+
+two:
+  active: 
+  inactive: 
+  over: 

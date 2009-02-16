@@ -1,0 +1,90 @@
+<% content_for :logo do %>
+  <%= render :partial => 'common/gray_logo' %>
+<% end %>
+
+<div id="pieces-wrapper">
+	<% unless @category.pieces.empty? %>
+		<% for piece in @pieces = @category.pieces %>
+			<% div_for(piece) do %>
+				<%= image_tag piece.image.url %>
+				<span class="piece_title hidden"><%=h piece.title %></span>
+				<span class="piece_client hidden"><%=h piece.client_name %></span>
+			<% end %>
+		<% end %>
+	<% else %>
+		<p><%= link_to 'Add a piece', new_category_piece_path(@category) %></p>
+	<% end %>
+</div><!-- end 'images-wrapper' -->
+<% unless @category.pieces.empty? %>
+	<div id="bottom-strip">
+		<div id="pieces-data">
+			<p id="piece_title"><%=h @pieces.first.title %></p>
+			<p id="piece_client"><%=h @pieces.first.client_name %></p>
+		</div>
+		<div id="pieces-nav">
+			<div id="arrows">
+				<%= image_tag('arrow-left.gif', :mouseover => 'arrow-left_ro.gif', :alt => 'Previous', :id => "prev_piece") %>
+				<%= image_tag('arrow-right.gif', :mouseover => 'arrow-right_ro.gif', :alt => 'Next', :id => "next_piece") %>
+			</div>
+			<ul id="pieces_menu">
+				<% unless @category.pieces.empty? %>
+					<% i = 1 %>
+					<% for piece in @pieces %>
+						<% content_tag_for(:li, piece) do %>
+							<%= link_to ( i < 10 ? '0' + i.to_s : i.to_s), category_piece_path(@category, piece), :class => ( piece == @pieces.first ? "active" : "inactive") %>
+						<% end %>
+						<% i += 1%>
+					<% end %>
+				<% end %>
+			</ul>
+		</div>
+	</div><!-- end 'bottom-strip' -->
+<% end %>
+
+<% content_for :page_js do %>
+	<script type="text/javascript">
+		$( function() {
+			$('#pieces-wrapper').serialScroll({
+				axis: 'x',
+				duration: 750,
+				easing: 'easeOutQuad',
+				step: 1,
+				cycle: true,
+				prev: '#prev_piece',
+				next: '#next_piece',
+				navigation: '#pieces_menu li a',
+				items: 'div',
+				onBefore: function(e, elem) {
+					// Assign 'active' class name to current image
+					$('#pieces_menu li a').each( function(n, a) {
+						$(a).removeClass('active').addClass('inactive');
+					})
+					$('#pieces_menu #' + elem.id + ' a').removeClass('inactive').addClass('active');
+				}
+			});
+			
+			// Set opacity of menu background
+			$('#pieces-nav').fadeTo(0, 0.85);
+			
+		});
+	</script>
+<% end %>
+<ul id="category_menu">
+	<% for category in @categories = ( authorized? ? @category.self_and_siblings : @category.self_and_siblings.find_all_by_is_visible(true)) %>
+		<% content_tag_for(:li, category) do %>
+			<% if category.is_or_is_ancestor_of?(@category) %>
+				<%= link_to image_tag(category.rollover.active.url), category %>
+			<% else %>
+				<%= link_to image_tag(category.rollover.inactive.url, :mouseover => category.rollover.over.url), category %>
+			<% end %>
+			<%= image_tag 'menuitem-separator.gif', :size => "6x11" unless category == @categories.last %>
+		<% end %>
+	<% end %>
+</ul>
+<% if authorized? %>
+	<% content_for :admin_toolbar do %>
+		<li><%= image_tag 'pencil.png', :size => "16x16", :alt=> 'Edit Category' %><%= link_to 'Edit Category', edit_category_path(@category) %></li>
+		<li><%= image_tag 'add.png', :size => "16x16", :alt=> 'Add Image' %><%= link_to 'Add Image', new_category_piece_path(@category) %></li>
+		<li><%= image_tag 'drag_handle.png', :size => "16x16", :alt=> 'Manage Images' %><%= link_to 'Manage Images', category_pieces_path(@category) %></li>
+	<% end %>
+<% end %>

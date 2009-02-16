@@ -1,0 +1,24 @@
+<h1>Editing rollover</h1>
+
+<% form_for(@rollover) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :active %><br />
+    <%= f.text_field :active %>
+  </p>
+  <p>
+    <%= f.label :inactive %><br />
+    <%= f.text_field :inactive %>
+  </p>
+  <p>
+    <%= f.label :over %><br />
+    <%= f.text_field :over %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @rollover %> |
+<%= link_to 'Back', rollovers_path %>

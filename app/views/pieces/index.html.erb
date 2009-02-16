@@ -1,0 +1,31 @@
+<h1>Images in <%= @category.name %></h1>
+<ol id="category_pieces_list" class="ui-sortable">
+	<% for piece in @pieces %>
+		<% content_tag_for(:li, piece, :class => 'ui-state-default') do %>
+			<%= image_tag 'drag_handle.png', :size => '16x16', :class => 'image_drag_handle' %>
+			<%= link_to image_tag('pencil.png', :size => '16x16'), edit_category_piece_path(@category,piece) %>
+			<%= link_to image_tag('fail.png', :size => '16x16'), category_piece_path(@category,piece), :confirm => 'Are you sure?', :method => :delete %>
+			<%= image_tag piece.image.url(:thumb) %>
+		<% end %>
+	<% end %>
+</ol>
+<% content_for :page_js do %>
+	<script type="text/javascript">
+		$( function() {
+			$('#category_pieces_list').sortable({
+				handle: '.image_drag_handle',
+				items: 'li',
+				update: function() {
+					$.post('pieces/order', $(this).sortable('serialize') +'&'+'authenticity_token='+ encodeURIComponent(AUTH_TOKEN));
+				} 
+			});
+		});
+	</script>
+<% end %>
+
+<%= link_to 'Back to category', @category %>
+
+<% content_for :admin_toolbar do %>
+	<li><%= image_tag 'add.png', :size => "16x16", :alt=> 'Add Image' %><%= link_to 'Add Image', new_category_piece_path(@category) %></li>
+<% end %>
+
