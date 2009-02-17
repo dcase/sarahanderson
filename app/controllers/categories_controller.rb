@@ -85,7 +85,7 @@ class CategoriesController < ApplicationController
     
     unless params[:category][:parent_id].empty?
       @parent = Category.find(params[:category][:parent_id])
-      @category.move_to_child_of(@parent)
+      @category.move_to_child_of(@parent) if @parent != @category.parent
     end
     
     respond_to do |format|

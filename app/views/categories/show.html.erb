@@ -11,8 +11,10 @@
 				<span class="piece_client hidden"><%=h piece.client_name %></span>
 			<% end %>
 		<% end %>
-	<% else %>
+	<% elsif authorized? %>
 		<p><%= link_to 'Add a piece', new_category_piece_path(@category) %></p>
+	<% else %>
+		<p>There are no images to display.</p>
 	<% end %>
 </div><!-- end 'images-wrapper' -->
 <% unless @category.pieces.empty? %>
