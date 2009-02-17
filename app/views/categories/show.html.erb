@@ -3,7 +3,7 @@
 <% end %>
 
 <div id="pieces-wrapper">
-	<% unless @category.pieces.empty? %>
+	<% if !@category.pieces.empty? %>
 		<% for piece in @pieces = @category.pieces %>
 			<% div_for(piece) do %>
 				<%= image_tag piece.image.url %>
