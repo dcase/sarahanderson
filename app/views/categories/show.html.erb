@@ -62,6 +62,8 @@
 						$(a).removeClass('active').addClass('inactive');
 					})
 					$('#pieces_menu #' + elem.id + ' a').removeClass('inactive').addClass('active');
+					$('#piece_title').html($('#pieces-wrapper #' + elem.id + ' .piece_title').html());
+					$('#piece_client').html($('#pieces-wrapper #' + elem.id + ' .piece_client').html());
 				}
 			});
 			
