@@ -12,6 +12,7 @@
 html, body {
 	margin: 0;
 	padding: 0;
+	height: 100%;
 }
 img {
 	border: 0;
@@ -34,15 +35,21 @@ body {
 	text-align: center;
 	position: relative;
 }
-
+div#vertical-centering {
+	float: left;
+	height: 50%;
+	width: 100%;
+	margin-bottom: -295px;
+}
 div#container {
-	margin: 25px auto;
+	margin: 0 auto;
 	padding: 40px 50px 30px 50px;
 	width: 761px;
 	min-height: 521px;
 	background: #fff;
 	border: 1px solid #000;
 	position: relative;
+	clear: left;
 }
 div#header {
 	height: 30px;
@@ -316,7 +323,7 @@ ul#category_menu li {
 }
 #pieces-nav {
 	padding: 6px 15px;
-	height: 13px;
+	height: 15px;
 	background: #fff;
 }
 #pieces-nav #arrows {

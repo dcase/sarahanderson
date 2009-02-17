@@ -27,6 +27,7 @@
 </head>
 
 <body class="<%= yield :body_class %>">
+<div id="vertical-centering" style="visibility: hidden;">Sarah Anderson Design</div>
 <div id="container">
 	<div id="header">
 		<%= (logo = yield :logo) ? logo : render(:partial => 'common/red_logo') %>

@@ -11,4 +11,3 @@ jQuery.fn.submitWithAjax = function() {
   })
   return this;
 };
-
