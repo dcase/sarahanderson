@@ -1,6 +1,6 @@
-img {behavior: url(/javascripts/iepngfix.htc);}
+img, #pieces-data {behavior: url(/javascripts/iepngfix.htc);}
 div#content {
-	min-height: 466px;
+	min-height: 468px;
 	height: auto !important;
-	height: 466px;
+	height: 468px;
 }
