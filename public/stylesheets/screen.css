@@ -278,7 +278,7 @@ div#contact_form_container img.label {
 	margin: 7px 0 2px 0;
 }
 div#contact_form_container .fieldWithErrors {
-	background-color: #fff;
+	background: transparent;
 	padding: 0;
 }
 #contact-errors {
