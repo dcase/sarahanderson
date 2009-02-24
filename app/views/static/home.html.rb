@@ -4,7 +4,7 @@
 <% 
 if !session[:home_image]
   session[:home_image] = 0
-elsif session[:home_image] == @images.count - 1
+elsif session[:home_image] == @images.count - 1 or session[:home_image] > @images.count - 1
   session[:home_image] = 0
 else
   session[:home_image] += 1
