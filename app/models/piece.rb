@@ -6,4 +6,10 @@ class Piece < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :client_name
   validates_attachment_presence :image
+  
+  def after_destroy
+    if category.name == 'Home'
+      session[:home_image] = 0
+    end
+  end
 end
