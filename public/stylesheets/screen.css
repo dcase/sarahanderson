@@ -308,7 +308,7 @@ ul#category_menu li {
 }
 #pieces-wrapper .piece {
 	display: inline;
-	margin-right: -1px;
+	padding-right: 2px;
 }
 #bottom-strip {
 	height: 60px;
