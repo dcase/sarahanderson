@@ -4,3 +4,9 @@ div#content {
 	height: auto !important;
 	height: 468px;
 }
+ul#category_menu li {
+	margin-left: 0;
+}
+#bottom-strip {
+	bottom: 20px;
+}
