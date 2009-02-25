@@ -1,19 +1,17 @@
 <% content_for :logo do %>
   <%= render :partial => 'common/red_logo' %>
 <% end %>
-<% content_for :page_js do %>
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $('#slideshow').cycle();
-  });
-  </script>
-<% end %>
+<% 
+if !session[:home_image]
+  session[:home_image] = 0
+elsif session[:home_image] == @images.count - 1 or session[:home_image] > @images.count - 1
+  session[:home_image] = 0
+else
+  session[:home_image] += 1
+end
+%>
 <div id="pieces-wrapper">
-  <div id="slideshow">
-  <% for piece in @images do %>
-    <%= image_tag piece.image.url, :class => 'slide' %>
-  <% end %>
-  </div>
+  <%= image_tag @images[session[:home_image]].image.url %>
 </div>
 <div id="home-footer">
   <%= image_tag 'art-direction-and-design.gif', :size => '118x8', :alt => 'Art Direction and Design' %>
