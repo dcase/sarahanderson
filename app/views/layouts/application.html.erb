@@ -23,7 +23,7 @@
 	<![endif]-->
 	<%= javascript_tag "AUTH_TOKEN = '#{form_authenticity_token}';" %>
 
-	<%= javascript_include_tag 'jquery','jquery-ui', 'jquery.scrollTo', 'jquery.serialScroll','jquery.cycle.lite','application', :cache => true %>
+	<%= javascript_include_tag 'jquery','jquery-ui', 'jquery.scrollTo', 'jquery.serialScroll','jquery.cycle.lite','application' %>
 	<%= yield :page_js %>
 </head>
 
