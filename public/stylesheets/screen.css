@@ -30,7 +30,7 @@ body {
 	background: #c0c0c0;
 	color: #666;
 	font-size: 12px;
-	font-family: arial,helvetica,clean,sans-serif;
+	font-family: helvetica,arial,clean,sans-serif;
 	line-height: 133%;
 	text-align: center;
 	position: relative;
@@ -211,6 +211,7 @@ ul#mainmenu {
 }
 ul#mainmenu li {
 	display: inline;
+	margin-left: -2px;
 }
 
 /*****************
@@ -295,6 +296,8 @@ ul#category_menu {
 }
 ul#category_menu li {
 	display: inline;
+	height: 14px;
+	margin-left: -2px;
 }
 #pieces-wrapper {
 	width: 760px;
@@ -305,24 +308,31 @@ ul#category_menu li {
 }
 #pieces-wrapper .piece {
 	display: inline;
+	margin-right: -1px;
 }
 #bottom-strip {
 	height: 60px;
 	width: 760px;
 	position: absolute;
-	bottom: 20px;
+	bottom: 21px;
 	z-index: 99;
 }
 #pieces-data {
-	padding: 3px 15px 5px 15px;
+	padding: 5px 15px 5px 15px;
 	height: 27px;
 	background: transparent url(/images/gradient-bg.png) repeat-y;
 }
 #pieces-data p {
-	font-size: 10px;
-	font-weight: bold;
+	font-size: 11px;
+	line-height: 120%;
 	color: #fff;
 	margin: 0;
+}
+#piece_title {
+	font-weight: bold;
+}
+#piece_client {
+	font-weight: normal;
 }
 #pieces-nav {
 	padding: 6px 15px;
@@ -343,6 +353,7 @@ ul#pieces_menu {
 ul#pieces_menu li {
 	display: inline;
 	font-size: 13px;
+	padding-right: 3px;
 }
 ul#pieces_menu a:link {
 	color: #000;

@@ -81,7 +81,6 @@
 			<% else %>
 				<%= link_to image_tag(category.rollover.inactive.url, :mouseover => category.rollover.over.url), category %>
 			<% end %>
-			<%= image_tag 'menuitem-separator.gif', :size => "6x11" unless category == @categories.last %>
 		<% end %>
 	<% end %>
 </ul>
