@@ -5,11 +5,7 @@
 <div id="pieces-wrapper">
 	<% if !@category.pieces.empty? %>
 		<% for piece in @pieces = @category.pieces %>
-			<% div_for(piece) do %>
-				<%= image_tag piece.image.url %>
-				<span class="piece_title hidden"><%=h piece.title %></span>
-				<span class="piece_client hidden"><%=h piece.client_name %></span>
-			<% end %>
+			<% div_for(piece) do %><%= image_tag piece.image.url %><span class="piece_title hidden"><%=h piece.title %></span><span class="piece_client hidden"><%=h piece.client_name %></span><% end %>
 		<% end %>
 	<% elsif authorized? %>
 		<p><%= link_to 'Add a piece', new_category_piece_path(@category) %></p>
