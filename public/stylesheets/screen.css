@@ -291,7 +291,7 @@ div#contact_form_container .fieldWithErrors {
 
 ul#category_menu {
 	margin: 0;
-	padding: 0;
+	padding: 2px;
 	list-style: none;
 }
 ul#category_menu li {
@@ -308,7 +308,7 @@ ul#category_menu li {
 }
 #pieces-wrapper .piece {
 	display: inline;
-	padding-right: 2px;
+	margin-right: -1px;
 }
 #bottom-strip {
 	height: 60px;
@@ -318,7 +318,7 @@ ul#category_menu li {
 	z-index: 99;
 }
 #pieces-data {
-	padding: 5px 15px 5px 15px;
+	padding: 6px 15px 4px 15px;
 	height: 27px;
 	background: transparent url(/images/gradient-bg.png) repeat-y;
 }
