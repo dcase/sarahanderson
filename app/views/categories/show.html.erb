@@ -5,7 +5,7 @@
 <div id="pieces-wrapper">
 	<% if !@category.pieces.empty? %>
 		<% for piece in @pieces = @category.pieces %>
-			<% div_for(piece) do %><%= image_tag piece.image.url, :alt => piece.title %><span class="piece_title hidden"><%=h piece.title %></span><span class="piece_client hidden"><%=h piece.client_name %></span><% end %>
+			<% div_for(piece) do %><%= image_tag piece.image.url, :alt => piece.title %><% end %>
 		<% end %>
 	<% elsif authorized? %>
 		<p><%= link_to 'Add a piece', new_category_piece_path(@category) %></p>
@@ -30,6 +30,7 @@
 					<% for piece in @pieces %>
 						<% content_tag_for(:li, piece) do %>
 							<%= link_to ( i < 10 ? '0' + i.to_s : i.to_s), category_piece_path(@category, piece), :class => ( piece == @pieces.first ? "active" : "inactive") %>
+							<span class="piece_title hidden"><%=h piece.title %></span><span class="piece_client hidden"><%=h piece.client_name %></span>
 						<% end %>
 						<% i += 1%>
 					<% end %>
@@ -58,8 +59,8 @@
 						$(a).removeClass('active').addClass('inactive');
 					})
 					$('#pieces_menu #' + elem.id + ' a').removeClass('inactive').addClass('active');
-					$('#piece_title').html($('#pieces-wrapper #' + elem.id + ' .piece_title').html());
-					$('#piece_client').html($('#pieces-wrapper #' + elem.id + ' .piece_client').html());
+					$('#piece_title').html($('#pieces_menu #' + elem.id + ' .piece_title').html());
+					$('#piece_client').html($('#pieces_menu #' + elem.id + ' .piece_client').html());
 				}
 			});
 			
