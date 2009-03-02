@@ -5,7 +5,7 @@
 <div id="pieces-wrapper">
 	<% if !@category.pieces.empty? %>
 		<% for piece in @pieces = @category.pieces %>
-			<% div_for(piece) do %><%= image_tag piece.image.url, :alt => piece.title %><% end %>
+			<% div_for(piece) do %><%= image_tag piece.image.url, :alt => h(piece.title) %><% end %>
 		<% end %>
 	<% elsif authorized? %>
 		<p><%= link_to 'Add a piece', new_category_piece_path(@category) %></p>
