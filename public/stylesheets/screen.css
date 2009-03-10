@@ -72,7 +72,7 @@ div#content {
 ******************/
 img#logo {
 	position: absolute;
-	top: 0;
+	top: -4px;
 	left: 0;
 }
 .flash {
@@ -291,7 +291,7 @@ div#contact_form_container .fieldWithErrors {
 
 ul#category_menu {
 	margin: 0;
-	padding: 2px;
+	padding: 6px 2px 0 2px;
 	list-style: none;
 }
 ul#category_menu li {
@@ -314,7 +314,7 @@ ul#category_menu li {
 	height: 60px;
 	width: 760px;
 	position: absolute;
-	bottom: 21px;
+	bottom: 25px;
 	z-index: 99;
 }
 #pieces-data {
