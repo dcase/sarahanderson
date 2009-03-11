@@ -218,9 +218,17 @@ ul#mainmenu li {
 * Home
 ******************/
 #home-footer {
-	text-align: right;
+	text-align: left;
 	padding-top: 8px;
 	clear: left;
+	position: relative;
+}
+#home-footer #copyright {
+	position: absolute;
+	top: 6px;
+	right: 0;
+	font-size: 9px;
+	color: #333;
 }
 
 /*****************
