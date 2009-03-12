@@ -16,7 +16,7 @@
   </div>
 </div>
 <div id="home-footer">
-  <%= image_tag 'art-direction-and-design.gif', :size => '118x8', :alt => 'Art Direction and Design' %>
+  <%= image_tag 'art-direction-and-design.gif', :size => '127x8', :alt => 'Art Direction and Design' %>
   <span id="copyright">&copy;2009 Sarah Anderson Design. All Rights Reserved.</span>
 </div>
 <% if authorized? %>
